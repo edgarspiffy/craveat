@@ -1,0 +1,19 @@
+{
+  "name": "cravvyt",
+  "version": "1.0.0",
+  "description": "App design to help you find the best dishes near you based on what you're craving",
+  "main": "app.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o public/style --recursive"
+  },
+  "author": "Edgar Limon",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.2",
+    "node-sass": "^4.13.1"
+  }
+}

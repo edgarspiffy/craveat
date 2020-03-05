@@ -1,0 +1,25 @@
+<%- include("../partials/header")  %>
+<div class="container-fluid top-bar">
+  <a href="/"><i class="back-arrow fas fa-arrow-left"></i></a>
+  <h1 class='text-center'>CRAVVYT</h1>
+</div>
+
+
+
+<div class="container">
+  <a href="/" class='btn btn-primary'>back to home</a>
+  <a href="/spot/new" class='btn btn-secondary'>Create New Restaurant</a>
+</div>
+
+
+<div class="list-group">
+  <% spots.forEach(spot => { %>
+  <a href="/spot/<%=spot._id%>" class="list-group-item list-group-item-action">
+    <%= spot.name %>
+  </a>
+  <% }) %>
+
+
+
+
+<%- include("../partials/footer")  %>

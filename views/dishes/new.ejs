@@ -1,0 +1,26 @@
+<%- include("../partials/header")  %>
+
+
+<div class="container">
+  <h1>Enter Dish</h1>
+  <form action='/spot/<%= id %>/dishes' method='POST'>
+    <div class="form-group">
+      <label for="restaurantName">NAME</label>
+      <input type="text" class="form-control" name='dish[name]' id="restaurantName" placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="restaurantCity">INGREDIENTS</label>
+      <input type="text" class="form-control" name='dish[ingredients]' id="restaurantCity" placeholder="">
+    </div>
+
+
+    <div>
+      <button class='btn btn-primary'>Submit</button>
+    </div>
+  </form>
+</div>
+
+
+
+<%- include("../partials/footer")  %>

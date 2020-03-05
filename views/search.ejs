@@ -1,0 +1,10 @@
+<div class="container">
+  <a href="/">back to home</a>
+</div>
+<%- include("partials/header")  %>
+<div class="container">
+<% restaurants.forEach(restaurant => { %>
+  <h1><%= restaurant.name %> </h1>
+<% }) %>
+</div>
+<%- include("partials/footer")  %>

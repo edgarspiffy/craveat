@@ -1,0 +1,27 @@
+@import 'variables';
+
+html,body {
+  font-family: 'Open Sans';
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+
+.relative {
+  position:relative;
+}
+
+
+#my-nav{
+  height:100px;
+  a.back-arrow{
+    position:absolute;
+    left:40px;
+    top:22px;
+    font-size:2rem;
+    padding:10px;
+    background:yellow;
+  }
+}
+
