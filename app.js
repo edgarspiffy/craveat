@@ -9,8 +9,9 @@ const express        = require('express'),
       dishRoutes     = require('./routes/dish'),
       options        = require('./data/indexData');
 
-let port = process.env.PORT;
+
 //DB SETUP
+let port = process.env.PORT;
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
@@ -26,7 +27,7 @@ if (port == null || port == "") {
  mongoose.connect("mongodb://localhost/cravvyt");
 }else{
   //CONNECT TO CLOUD DB
-  mongoose.connect("mongodb://edgar:abc123@ds125479.mlab.com:25479/cravyyt");
+  mongoose.connect(process.env.DATABASEURL);
 
 }
 
