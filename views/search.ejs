@@ -1,10 +1,26 @@
-<div class="container">
-  <a href="/">back to home</a>
-</div>
 <%- include("partials/header")  %>
-<div class="container">
-<% restaurants.forEach(restaurant => { %>
-  <h1><%= restaurant.name %> </h1>
-<% }) %>
+<h1 class='text-center'>Meals with <%= qs.ingredient %> in <%= qs.location %></h1>
+
+<div class="container-fluid">
+
+      <%- include("partials/searchBar")  %>
+  
 </div>
+
+
+<div class="container-fluid">
+
+      <%- include("partials/card")  %>
+      <%- include("partials/card")  %>
+      <%- include("partials/card")  %>
+      <%- include("partials/card")  %>
+      <%- include("partials/card")  %>
+      <%- include("partials/card")  %>
+      <%- include("partials/card")  %>
+      <%- include("partials/card")  %>
+      <%- include("partials/card")  %>
+
+</div>
+
+
 <%- include("partials/footer")  %>

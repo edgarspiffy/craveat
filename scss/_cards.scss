@@ -1,0 +1,15 @@
+.my-card{
+  background-color:$gray;
+  border-top:1px solid $black;
+  border-bottom:1px solid $black;
+  .minor{
+    color:#A5A5A5;
+  }
+  p{
+    color:$black;
+  }
+  a {
+    color:$black !important;
+    text-decoration: none;
+  }
+}

@@ -1,18 +1,48 @@
-html, body {
-  font-family: 'Open Sans';
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
-
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic|Pathway+Gothic+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Kanit&display=swap");
 .relative {
   position: relative; }
 
-#my-nav {
-  height: 100px; }
-  #my-nav a.back-arrow {
-    position: absolute;
-    left: 40px;
-    top: 22px;
-    font-size: 2rem;
-    padding: 10px;
-    background: yellow; }
+.my-card {
+  background-color: #EDEDED;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000; }
+  .my-card .minor {
+    color: #A5A5A5; }
+  .my-card p {
+    color: #000000; }
+  .my-card a {
+    color: #000000 !important;
+    text-decoration: none; }
+
+html, body {
+  font-family: 'Pathway Gothic One', sans-serif; }
+
+.logo {
+  font-family: 'Kanit', sans-serif; }
+
+.my-list {
+  background-color: #EDEDED;
+  padding: 10px 0 6px 20px;
+  border-top: 1px solid #000000;
+  color: #000000; }
+  .my-list:hover {
+    background-color: #FEED4D; }
+  .my-list a {
+    color: #000000;
+    text-decoration: none; }
+
+.bg-gray {
+  background-color: #EDEDED; }
+
+.bg-yellow {
+  background-color: #FEED4D;
+  border-color: #FEED4D; }
+
+.header a {
+  color: #000000;
+  font-size: 1rem;
+  text-decoration: none;
+  font-size: 2rem; }
+  .header a:hover {
+    color: #FEED4D; }

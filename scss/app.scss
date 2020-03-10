@@ -1,27 +1,56 @@
 @import 'variables';
+@import 'utilities';
+@import 'cards';
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Pathway+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+
+// font-family: 'Pathway Gothic One', sans-serif;
+// font-family: 'Nanum Gothic', sans-serif;
 
 html,body {
-  font-family: 'Open Sans';
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
+  font-family: 'Pathway Gothic One', sans-serif;
 }
 
 
-.relative {
-  position:relative;
+
+
+
+.logo{
+  font-family:'Kanit', sans-serif;
 }
 
 
-#my-nav{
-  height:100px;
-  a.back-arrow{
-    position:absolute;
-    left:40px;
-    top:22px;
-    font-size:2rem;
-    padding:10px;
-    background:yellow;
+.my-list{
+  background-color:$gray;
+  padding:10px 0 6px 20px;
+  border-top: 1px solid $black;
+  color:$black;
+  
+  &:hover{
+    background-color:$yellow;
+  }
+  a{
+    color:$black;
+    text-decoration: none;
   }
 }
 
+.bg-gray {
+  background-color:$gray;
+}
+.bg-yellow {
+  background-color:$yellow;
+  border-color: $yellow;
+}
+
+.header {
+  a {
+    color:$black;
+    font-size:1rem;
+    text-decoration: none;
+    font-size:2rem;
+    &:hover{
+      color:$yellow;
+    }
+  }
+}

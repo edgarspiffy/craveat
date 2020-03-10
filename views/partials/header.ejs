@@ -7,10 +7,37 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style/app.css">
-  <title>Cravvyt</title>
+  <link rel="stylesheet" href="/style/app.css">
+  <title>CravEat</title>
 </head>
 <body>
+<div class="container-fluid py-3 header">
+  <div class="row align-items-center">
+    <div class="col-4 text-center">
 
+
+      
+   
+      <% const regex1 = RegExp('/spot/*'); %> 
+      <% const regex2 = RegExp('/search*'); %> 
+
+      <% if(url == "/"){%> 
+      <% }else if(url == "/spot" || regex2.test(url) ){ %> 
+        <div class="text-center">
+          <a href="/"><i class="fas fa-angle-double-left"></i></a>
+        </div>
+      <% }else if(regex1.test(url)){%> 
+        <div class="text-center">
+          <a href="/spot"><i class="fas fa-angle-double-left"></i></a>
+        </div>
+      <% }else{  %> 
+       adsf
+      <% } %> 
+   
+    </div>
+    <div class="col-4 text-center"><a href="/">CravEat</a></div>
+    <div class="col-4 text-center"><a href="/spot">Spots</a></div>
+  </div>
+</div>
 
 

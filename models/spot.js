@@ -2,9 +2,28 @@ const mongoose = require('mongoose');
 
 const spotSchema = new mongoose.Schema({
   name: String,
-  city: String,
+
+  location:{
+    city:String,
+    zip:Number,
+    address:String
+  },
+  
+  hours:[
+    {
+      day:String,
+      start:String,
+      end:String,
+      happyHour:{
+        happyHour:Boolean,
+        start:Number,
+        end:Number
+      }
+    }
+  ],
+  
   alcohol: Boolean,
-  happyHour: Boolean,
+
   dishes: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Dish'

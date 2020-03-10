@@ -1,26 +1,25 @@
 <%- include("partials/header")  %> 
 
-<div class="container-fluid">
-  <div id='my-nav' class="row align-items-center text-center relative">
-  <!-- <a href="google.com"><i class="back-arrow fas fa-arrow-left"></i></a> -->
-    <div class="col">
-      <h1>CRAVEAT</h1>
-    </div>
-  </div>
+
+<%- include("partials/searchBar")  %>
+
+<!-- LOOP -->
+<% options.forEach(option => { %>
+<div class="container-fluid my-list">
+  <a href="#">
+    <h3><%= option.category %> </h3>
+  </a>
 </div>
+<% }) %>
 
 
 
 
 
 
- 
-<div class="container-fluid">
-  <div class="list-group">
-    <a href="/spot" class="list-group-item list-group-item-action">Dining Locations</a> 
-    <a href="/search/happy-hour" class="list-group-item list-group-item-action">LOOKING FOR DRINKS</a>
-    <a href="/search/drinks" class="list-group-item list-group-item-action">CHECK OUT RESTAURANTS</a> 
-  </div>
-</div>
+
+
+
+
 
 <%- include("partials/footer")  %> 

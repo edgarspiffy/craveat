@@ -1,34 +1,48 @@
 <%- include("../partials/header")  %>
-<div class="container-fluid top-bar">
-  <a href="/spot"><i class="back-arrow fas fa-arrow-left"></i></a>
-  <h1 class='text-center'>CRAVVYT</h1>
-</div>
 
 
 <div class="container">
+  <div class="row align-items-center">
+    <div class="col">
     <h1><%= info.name %> </h1>
     <p><%= info.city %> </p>
+    </div>
+    <div class="col">
+      <a class='btn btn-warning' href="/spot/<%= info._id %>/edit">Edit Restaurant</a>
+
+      <form class='d-inline'action="/spot/<%= info._id %>?_method=DELETE" method='POST'>
+        <button class='btn btn-danger'>DELETE</button>
+      </form>
+    </div>
+  </div>
 </div>
 
 <div class="container">
-  <a class='btn btn-warning' href="/spot/<%= info._id %>/edit">Edit Restaurant</a>
-  <form action="/spot/<%= info._id %>?_method=DELETE" method='POST'>
-    <button class='btn btn-danger'>DELETE</button>
-  </form>
-  <a class='btn btn-secondary' href="/spot/<%= info._id %>/dishes/new">Add New Dish</a>
+
+ 
+
 </div>
+
+
+
 
 
 
 
 <div class="container">
-  <h2>Dishes</h2>
-  <ul>
-    <% info.dishes.forEach(dish => { %>
-    <a href='/spot/<%=info._id%>/dishes/<%=dish._id%>'><%= dish.name %></a>
-    <% }) %>
-  </ul>
+  <div class="row">
+    <div class="col-6"><h2>Dishes</h2></div>
+    <div class="col-6"><a class='btn btn-secondary' href="/spot/<%= info._id %>/dishes/new">Add New Dish</a></div>
+  </div>
 </div>
+
+
+
+<% info.dishes.forEach(dish => { %>
+<div class="container-fluid my-list">
+  <a href='/spot/<%=info._id%>/dishes/<%=dish._id%>'><%= dish.name %></a>
+</div>
+<% }) %>
 
 
 <%- include("../partials/footer")  %>

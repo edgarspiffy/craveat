@@ -6,7 +6,8 @@ const express        = require('express'),
       Dish           = require('./models/dishes'),
       Spot           = require('./models/spot'),
       spotRoutes     = require('./routes/spot'),
-      dishRoutes     = require('./routes/dish');
+      dishRoutes     = require('./routes/dish'),
+      options        = require('./data/indexData');
 
 
 //DB SETUP
@@ -19,8 +20,9 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.connect("mongodb://localhost/cravvyt");
 
 // APP SET UP
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.set('view engine', 'ejs');
 app.use('/spot',spotRoutes);
 app.use('/spot/:id/dishes',dishRoutes);
@@ -30,19 +32,26 @@ app.use(methodOverride("_method"));
 
 
 app.get('/',(req,res)=>{
-  res.render('index');
+  const url = req.originalUrl;
+  
+  res.render('index', { options: options, url: req.originalUrl});
 });
 
+app.get('/search',(req,res)=>{
+  const query = req.query;
+  res.render('search', { qs: query, url: req.originalUrl});
+})
 
-
-
+app.get('/dishInfo',(req,res)=>{
+  res.render('dishInfo', { url: req.originalUrl});
+})
 
 app.get('/search/happy-hour',(req,res)=>{
   Restaurant.find({happyHour:true},(err,restaurants)=>{
     if(err){
       console.log(err);
     }else{
-      res.render('search',{restaurants:restaurants})
+      res.render('search', { restaurants: restaurants, url: req.originalUrl})
     }
   })
 });
@@ -52,7 +61,7 @@ app.get('/search/drinks',(req,res)=>{
     if(err){
       console.log(err);
     }else{
-      res.render('search',{restaurants:restaurants})
+      res.render('search', { restaurants: restaurants, url: req.originalUrl})
     }
   })
 })
@@ -80,5 +89,11 @@ app.post('/restaurant/:id/dish',(req,res)=>{
 });
 
 
+//format for dish info 
+// app.get('/test',(req,res)=>{
+//   Dish.findById('5e66142550d906e6040fab01').populate('spotInfo').exec((err,worked)=>{
+//     res.render('test', { data: worked });
+//   })
+// })
 
 app.listen(3000,'127.0.0.1',()=>{console.log('server is live');});

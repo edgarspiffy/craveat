@@ -10,14 +10,14 @@ router.get('/', (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render('spot/index', { spots: spots });
+      res.render('spot/index', { spots: spots, url: req.originalUrl});
     }
   })
 });
 
 //GET NEW FORM
 router.get('/new', (req, res) => {
-  res.render('spot/new');
+  res.render('spot/new', { url: req.originalUrl });
 });
 
 //GET INFO
@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render('spot/info', { info: spot });
+      res.render('spot/info', { info: spot, url: req.originalUrl });
     }
   })
 });
@@ -38,7 +38,7 @@ router.get('/:id/edit', (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render('spot/edit', { info: spot });
+      res.render('spot/edit', { info: spot, url: req.originalUrl });
     }
   })
 })

@@ -5,10 +5,18 @@ const Spot = require('../models/spot');
 const methodOverride = require('method-override');
 router.use(methodOverride("_method"));
 
+
+// function formatIngredients(info,data){
+//   info = data;
+//   info.ingredients = info.ingredients.toLowerCase();
+//   info.ingredients = info.ingredients.split(',');
+//   return info;
+// }
+
 // GET NEW
 router.get('/new',(req,res)=>{
   const id = req.params.id;
-  res.render('dishes/new',{id,id});
+  res.render('dishes/new', { id, id, url: req.originalUrl });
 });
 
 // GET DISH INFO
@@ -16,7 +24,7 @@ router.get('/:id2',(req,res)=>{
 const id = req.params.id;
 const id2 = req.params.id2;
 Dish.findById(id2,(err,foundDish)=>{
-    res.render('dishes/info',{info:foundDish,id:id,id2:id2});
+  res.render('dishes/info', { info: foundDish, id: id, id2: id2, url: req.originalUrl });
   });
 });
 
@@ -28,7 +36,7 @@ router.get('/:id2/edit',(req,res)=>{
     if(err){
       console.log(err);
     }else{
-      res.render('dishes/edit',{dish:foundDish,id:id});
+      res.render('dishes/edit', { dish: foundDish, id: id, url: req.originalUrl });
     }
   });
 });
@@ -36,7 +44,12 @@ router.get('/:id2/edit',(req,res)=>{
 //POST
 router.post('/',(req,res)=>{
   const id = req.params.id;
-  Dish.create(req.body.dish,(err,newDish)=>{
+  
+  const info = req.body.dish;
+  info.ingredients = info.ingredients.toLowerCase();
+  info.ingredients = info.ingredients.split(',');
+  
+  Dish.create(info,(err,newDish)=>{
     if(err){
       console.log(err);
     }else{
@@ -58,6 +71,7 @@ router.post('/',(req,res)=>{
   })
 });
 
+// EDIT
 router.put('/:id2',(req,res)=>{
   const id =req.params.id;
   const id2 = req.params.id2
