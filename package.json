@@ -4,6 +4,7 @@
   "description": "App design to help you find the best dishes near you based on what you're craving",
   "main": "app.js",
   "scripts": {
+    "start": "app node.js"
     "sass": "node-sass -w scss/ -o public/style --recursive"
   },
   "author": "Edgar Limon",
