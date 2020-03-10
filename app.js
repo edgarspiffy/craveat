@@ -9,15 +9,27 @@ const express        = require('express'),
       dishRoutes     = require('./routes/dish'),
       options        = require('./data/indexData');
 
-
+let port = process.env.PORT;
 //DB SETUP
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-//CONNECTING TO DB
-mongoose.connect("mongodb://localhost/cravvyt");
+
+
+
+
+
+if (port == null || port == "") {
+ //CONNECTING TO LOCAL DB
+ mongoose.connect("mongodb://localhost/cravvyt");
+}else{
+  //CONNECT TO CLOUD DB
+  mongoose.connect("mongodb://edgar:abc123@ds125479.mlab.com:25479/cravyyt");
+
+}
+
 
 // APP SET UP
 app.use(express.static('public'));
@@ -96,4 +108,9 @@ app.post('/restaurant/:id/dish',(req,res)=>{
 //   })
 // })
 
-app.listen(3000,'127.0.0.1',()=>{console.log('server is live');});
+
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
+// app.listen(3000,'127.0.0.1',()=>{console.log('server is live');});
