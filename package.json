@@ -15,6 +15,6 @@
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.9.2",
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   }
 }
